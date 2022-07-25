@@ -26,6 +26,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+        classpath('com.google.gms:google-services:4.3.3')
         classpath('com.android.tools.build:gradle:7.0.4')
         classpath('com.facebook.react:react-native-gradle-plugin')
         classpath('de.undercouch:gradle-download-task:4.1.2')
@@ -36,6 +37,7 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
@@ -46,7 +48,6 @@ allprojects {
             url(new File(['node', '--print', "require.resolve('jsc-android/package.json')"].execute(null, rootDir).text.trim(), '../dist'))
         }
 
-        google()
         mavenCentral {
             // We don't want to fetch react-native from Maven Central as there are
             // older versions over there.
